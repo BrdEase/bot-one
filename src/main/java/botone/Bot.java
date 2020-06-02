@@ -1,8 +1,11 @@
 package botone;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.security.auth.login.LoginException;
 
@@ -14,6 +17,7 @@ import botone.events.DaUmaSugadaEvent;
 import botone.events.HelloEvent;
 import botone.events.HelpEvent;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Activity.ActivityType;
 import net.dv8tion.jda.api.entities.Message;
@@ -27,9 +31,15 @@ public class Bot {
 	private static Boolean ignoreChannel = false;
 	public static Role admRole = null;
 
-	public static void main(String[] args) throws LoginException, InterruptedException {
+	public static void main(String[] args) throws LoginException, InterruptedException, FileNotFoundException {
 
-		// JDABuilder builder = JDABuilder.createDefault("TOKEN");
+		// this snippet is just for getting my token without posting online
+
+		Scanner s = new Scanner(new File("C:\\Users\\Murilo\\Desktop\\Programacao\\tokenBot.txt"));
+
+		String token = s.next();
+
+		JDABuilder builder = JDABuilder.createDefault(token);
 		builder.setActivity(Activity.of(ActivityType.WATCHING, "um homem morto"));
 
 		AdmRoleEvent admRoleGetter = new AdmRoleEvent();
