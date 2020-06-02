@@ -14,7 +14,6 @@ import botone.events.DaUmaSugadaEvent;
 import botone.events.HelloEvent;
 import botone.events.HelpEvent;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Activity.ActivityType;
 import net.dv8tion.jda.api.entities.Message;
@@ -30,7 +29,7 @@ public class Bot {
 
 	public static void main(String[] args) throws LoginException, InterruptedException {
 
-		JDABuilder builder = JDABuilder.createDefault("NzE2NDgxNTYxNzYyOTg4MDYy.XtMZoA.raC9VzoXZ5_voODKNIjPmd5oyp4");
+		// JDABuilder builder = JDABuilder.createDefault("TOKEN");
 		builder.setActivity(Activity.of(ActivityType.WATCHING, "um homem morto"));
 
 		AdmRoleEvent admRoleGetter = new AdmRoleEvent();
